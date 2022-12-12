@@ -1,87 +1,71 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2639
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red70\green137\blue204;\red26\green26\blue41;\red172\green172\blue193;
-\red212\green212\blue212;\red167\green197\blue152;\red45\green175\blue118;\red13\green102\blue149;\red194\green126\blue101;
-\red31\green133\blue64;\red140\green108\blue11;\red253\green181\blue13;\red187\green97\blue44;}
-{\*\expandedcolortbl;;\cssrgb\c33725\c61176\c83922;\cssrgb\c13333\c13725\c21176;\cssrgb\c72941\c73333\c80000;
-\cssrgb\c86275\c86275\c86275;\cssrgb\c70980\c80784\c65882;\cssrgb\c19608\c72941\c53725;\cssrgb\c0\c47843\c65098;\cssrgb\c80784\c56863\c47059;
-\cssrgb\c12941\c58039\c31765;\cssrgb\c61961\c49412\c3137;\cssrgb\c100000\c75686\c2745;\cssrgb\c78824\c45882\c22353;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\partightenfactor0
+pragma solidity ^0.8.12;
 
-\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 pragma\cf4 \strokec4  \cf2 \strokec2 solidity\cf4 \strokec4  \cf5 \strokec5 ^\cf6 \strokec6 0.8.12\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\
-\cf2 \cb3 \strokec2 contract\cf4 \strokec4  product \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf2 \strokec2 bytes32\cf5 \strokec5 []\cf4 \strokec4  products\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf2 \strokec2 bytes32\cf5 \strokec5 []\cf4 \strokec4  owners\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf2 \strokec2 bytes32\cf5 \strokec5 []\cf4 \strokec4  pStatus\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf2 \strokec2 bytes32\cf5 \strokec5 []\cf4 \strokec4  Destination\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 mapping\cf5 \strokec5 (\cf2 \strokec2 bytes32\cf4 \strokec4  => \cf2 \strokec2 bool\cf5 \strokec5 )\cf4 \strokec4  \cf7 \strokec7 public\cf4 \strokec4  vProducts\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 function\cf4 \strokec4  setProduct\cf5 \strokec5 (\cf2 \strokec2 bytes32\cf4 \strokec4  productId\cf5 \strokec5 ,\cf2 \strokec2 bytes32\cf4 \strokec4  pOwner\cf5 \strokec5 )\cf4 \strokec4  \cf7 \strokec7 public\cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf8 \strokec8 require\cf5 \strokec5 (!\cf4 \strokec4 vProducts\cf5 \strokec5 [\cf4 \strokec4 productId\cf5 \strokec5 ]);\cf4 \cb1 \strokec4 \
-\cb3         vProducts\cf5 \strokec5 [\cf4 \strokec4 productId\cf5 \strokec5 ]\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf2 \strokec2 true\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\
-\cb3         products\cf5 \strokec5 .\cf4 \strokec4 push\cf5 \strokec5 (\cf4 \strokec4 productId\cf5 \strokec5 );\cf4 \cb1 \strokec4 \
-\cb3         owners\cf5 \strokec5 .\cf4 \strokec4 push\cf5 \strokec5 (\cf4 \strokec4 pOwner\cf5 \strokec5 );\cf4 \cb1 \strokec4 \
-\cb3         pStatus\cf5 \strokec5 .\cf4 \strokec4 push\cf5 \strokec5 (\cf9 \strokec9 "Available"\cf5 \strokec5 );\cf4 \cb1 \strokec4 \
-\cb3                 \cb1 \
-\cb3     \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 function\cf4 \strokec4  viewProducts \cf5 \strokec5 ()\cf4 \strokec4  \cf7 \strokec7 public\cf4 \strokec4  \cf7 \strokec7 view\cf4 \strokec4  \cf10 \strokec10 returns\cf5 \strokec5 (\cf2 \strokec2 bytes32\cf5 \strokec5 []\cf4 \strokec4  \cf11 \strokec11 memory\cf5 \strokec5 ,\cf4 \strokec4  \cf2 \strokec2 bytes32\cf5 \strokec5 []\cf4 \strokec4  \cf11 \strokec11 memory\cf5 \strokec5 ,\cf2 \strokec2 bytes32\cf5 \strokec5 []\cf4 \strokec4  \cf11 \strokec11 memory\cf5 \strokec5 ,\cf4 \strokec4  \cf2 \strokec2 bytes32\cf5 \strokec5 []\cf4 \strokec4  \cf11 \strokec11 memory\cf5 \strokec5 )\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf5 \strokec5 (\cf4 \strokec4 products\cf5 \strokec5 ,\cf4 \strokec4 owners\cf5 \strokec5 ,\cf4 \strokec4 pStatus\cf5 \strokec5 ,\cf4 \strokec4 Destination\cf5 \strokec5 );\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 function\cf4 \strokec4  sellProduct \cf5 \strokec5 (\cf2 \strokec2 bytes32\cf4 \strokec4  sProductId\cf5 \strokec5 ,\cf4 \strokec4  \cf2 \strokec2 bytes32\cf4 \strokec4  sDestination\cf5 \strokec5 )\cf4 \strokec4  \cf7 \strokec7 public\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf2 \strokec2 bytes32\cf4 \strokec4  status\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf2 \strokec2 uint\cf4 \strokec4  i\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf2 \strokec2 uint\cf4 \strokec4  j\cf5 \strokec5 =\cf6 \strokec6 0\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf12 \strokec12 if\cf5 \strokec5 (\cf4 \strokec4 products\cf5 \strokec5 .\cf4 \strokec4 length\cf5 \strokec5 >\cf6 \strokec6 0\cf5 \strokec5 )\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3             \cf13 \strokec13 for\cf5 \strokec5 (\cf4 \strokec4 i\cf5 \strokec5 =\cf6 \strokec6 0\cf5 \strokec5 ;\cf4 \strokec4 i\cf5 \strokec5 <\cf4 \strokec4 products\cf5 \strokec5 .\cf4 \strokec4 length\cf5 \strokec5 ;\cf4 \strokec4 i\cf5 \strokec5 ++)\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3                 \cf12 \strokec12 if\cf5 \strokec5 (\cf4 \strokec4 products\cf5 \strokec5 [\cf4 \strokec4 i\cf5 \strokec5 ]==\cf4 \strokec4 sProductId\cf5 \strokec5 )\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3                     j\cf5 \strokec5 =\cf4 \strokec4 i\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3                 \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\cb3             \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\
-\cb3         status\cf5 \strokec5 =\cf4 \strokec4 pStatus\cf5 \strokec5 [\cf4 \strokec4 j\cf5 \strokec5 ];\cf4 \cb1 \strokec4 \
-\cb3         \cf12 \strokec12 if\cf5 \strokec5 (\cf4 \strokec4 status\cf5 \strokec5 ==\cf9 \strokec9 "Available"\cf4 \strokec4  \cf5 \strokec5 &&\cf4 \strokec4  sDestination \cf5 \strokec5 ==\cf4 \strokec4  \cf9 \strokec9 "Customer"\cf5 \strokec5 )\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3             pStatus\cf5 \strokec5 [\cf4 \strokec4 j\cf5 \strokec5 ]=\cf9 \strokec9 "NA"\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 function\cf4 \strokec4  verifyFakeness\cf5 \strokec5 (\cf2 \strokec2 bytes32\cf4 \strokec4  vProductId\cf5 \strokec5 )\cf4 \strokec4  \cf7 \strokec7 public\cf4 \strokec4  \cf7 \strokec7 view\cf4 \strokec4  \cf10 \strokec10 returns\cf5 \strokec5 (\cf2 \strokec2 bytes32\cf5 \strokec5 ,\cf2 \strokec2 bytes32\cf5 \strokec5 ,\cf2 \strokec2 bytes32\cf5 \strokec5 )\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf2 \strokec2 bool\cf4 \strokec4  status\cf5 \strokec5 =\cf2 \strokec2 false\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf2 \strokec2 uint\cf4 \strokec4  i\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf2 \strokec2 uint\cf4 \strokec4  j\cf5 \strokec5 =\cf6 \strokec6 0\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf12 \strokec12 if\cf5 \strokec5 (\cf4 \strokec4 products\cf5 \strokec5 .\cf4 \strokec4 length\cf5 \strokec5 >\cf6 \strokec6 0\cf5 \strokec5 )\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3             \cf13 \strokec13 for\cf5 \strokec5 (\cf4 \strokec4 i\cf5 \strokec5 =\cf6 \strokec6 0\cf5 \strokec5 ;\cf4 \strokec4 i\cf5 \strokec5 <\cf4 \strokec4 products\cf5 \strokec5 .\cf4 \strokec4 length\cf5 \strokec5 ;\cf4 \strokec4 i\cf5 \strokec5 ++)\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3                 \cf12 \strokec12 if\cf5 \strokec5 (\cf4 \strokec4 products\cf5 \strokec5 [\cf4 \strokec4 i\cf5 \strokec5 ]==\cf4 \strokec4 vProductId\cf5 \strokec5 )\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3                     j\cf5 \strokec5 =\cf4 \strokec4 i\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3                     status\cf5 \strokec5 =\cf2 \strokec2 true\cf5 \strokec5 ;\cf4 \cb1 \strokec4 \
-\cb3                 \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\cb3             \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf12 \strokec12 if\cf5 \strokec5 (\cf4 \strokec4 status\cf5 \strokec5 ==\cf2 \strokec2 true\cf5 \strokec5 )\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3                 \cf12 \strokec12 if\cf5 \strokec5 (\cf4 \strokec4 pStatus\cf5 \strokec5 [\cf4 \strokec4 j\cf5 \strokec5 ]==\cf9 \strokec9 "Available"\cf5 \strokec5 )\cf4 \cb1 \strokec4 \
-\cb3                     \cf10 \strokec10 return\cf5 \strokec5 (\cf4 \strokec4 products\cf5 \strokec5 [\cf4 \strokec4 j\cf5 \strokec5 ],\cf4 \strokec4 owners\cf5 \strokec5 [\cf4 \strokec4 j\cf5 \strokec5 ],\cf9 \strokec9 "Original"\cf5 \strokec5 );\cf4 \cb1 \strokec4 \
-\cb3                 \cf12 \strokec12 else\cf4 \strokec4  \cb1 \
-\cb3                     \cf10 \strokec10 return\cf4 \strokec4  \cf5 \strokec5 (\cf4 \strokec4 products\cf5 \strokec5 [\cf4 \strokec4 j\cf5 \strokec5 ],\cf4 \strokec4 owners\cf5 \strokec5 [\cf4 \strokec4 j\cf5 \strokec5 ],\cf9 \strokec9 "Fake"\cf5 \strokec5 );\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 \}\cf4 \strokec4  \cf12 \strokec12 else\cf4 \strokec4  \cf5 \strokec5 \{\cf4 \cb1 \strokec4 \
-\cb3                 \cf10 \strokec10 return\cf5 \strokec5 (\cf9 \strokec9 "NA"\cf5 \strokec5 ,\cf9 \strokec9 "NA"\cf5 \strokec5 ,\cf9 \strokec9 "Fake"\cf5 \strokec5 );\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf5 \strokec5 \}\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 \}\cf4 \cb1 \strokec4 \
+contract product {
+
+    bytes32[] products;
+    bytes32[] owners;
+    bytes32[] pStatus;
+    bytes32[] Destination;
+
+    mapping(bytes32 => bool) public vProducts;
+
+    function setProduct(bytes32 productId,bytes32 pOwner) public{
+
+        require(!vProducts[productId]);
+        vProducts[productId] = true;
+
+        products.push(productId);
+        owners.push(pOwner);
+        pStatus.push("Available");
+                
+    }
+
+    function viewProducts () public view returns(bytes32[] memory, bytes32[] memory,bytes32[] memory, bytes32[] memory) {
+        return(products,owners,pStatus,Destination);
+    }
+
+    function sellProduct (bytes32 sProductId, bytes32 sDestination) public {
+        bytes32 status;
+        uint i;
+        uint j=0;
+
+        if(products.length>0) {
+            for(i=0;i<products.length;i++) {
+                if(products[i]==sProductId) {
+                    j=i;
+                }
+            }
+        }
+
+        status=pStatus[j];
+        if(status=="Available" && sDestination == "Customer") {
+            pStatus[j]="NA";
+        }
+    }
+
+    function verifyFakeness(bytes32 vProductId) public view returns(bytes32,bytes32,bytes32) {
+
+        bool status=false;
+        uint i;
+        uint j=0;
+
+        if(products.length>0) {
+            for(i=0;i<products.length;i++) {
+                if(products[i]==vProductId) {
+                    j=i;
+                    status=true;
+                }
+            }
+        }
+
+        if(status==true) {
+                if(pStatus[j]=="Available")
+                    return(products[j],owners[j],"Original");
+                else 
+                    return (products[j],owners[j],"Fake");
+        } else {
+                return("NA","NA","Fake");
+        }
+
+    }
 }
